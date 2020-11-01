@@ -1,0 +1,521 @@
+<!doctype html>
+<html>
+<head>
+    
+
+
+
+	
+		<title>富邦產險官網-線上投保汽車險</title>
+	
+	
+	
+
+
+	
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no"/>
+
+<link rel="icon" href="/B2CUnion/resources/favicon.ico" type="image/x-icon" />
+<script type="text/javascript" src="../../resources/vehicle/js/jquery.min-3.4.1.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/jquery.validate.1.19.0.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/jquery.validate.1.11.1.message_zh_TW.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/jquery.validate.1.19.0.additional-methods.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/custom-validate.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/jquery.mask.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/pi-layout.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/jquery.uppercase.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/jquery.loadingOverlay.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/vehicle-common.js"></script>
+<script type="text/javascript" src="../../resources/vehicle/js/fixhover.js?v=01"></script>
+<!--
+<script type="text/javascript" src="../../resources/common/js/date-drop-tools.js?V=20200512"></script>
+<script type="text/javascript" src="../../resources/common/js/jquery-tools.js?V=20200513"></script>
+-->
+<script type="text/javascript" src="../../resources/vehicle/js/bootstrap.min.js"></script>
+<script>
+	
+	$(function(){
+		// 轉大寫
+		$('input[target="uppercase"]:not([readonly])').uppercase();
+		// Loading Overlay
+		$(".show-loading").on('click', $.activeLoadingOverlay);
+		//處理 iOS safari back-forward cache 問題 2020/08/04
+		var brws = navigator.userAgent.toLowerCase();
+		// if safari true
+		if (brws.indexOf('safari') != -1 && brws.indexOf('chrome') < 0) {
+			$(window).bind("pageshow", function(event) {
+				if (event.originalEvent.persisted) {
+					window.location.reload() 
+				}
+			});
+		}
+		var msg = '';
+		if(msg !== ''){
+			alert(msg);
+		}
+	});
+	
+</script>
+
+
+
+
+
+
+<style>
+.qa_btn {
+    position: fixed;
+    bottom: 125px;
+    right: 10px;
+    z-index: 10;
+}
+</style>
+
+<!--Q&A-->
+<a href="https://www.fubon.com/insurance/b2c/content/main/qanda/index.html?_ga=2.79562452.1306166961.1600657518-454070217.1600657518&_gac=1.107405680.1600647081.CPqpt47avtECFd4KKgod44EGgQ " target="_blank">
+	<img src="/B2CUnion/resources/vehicle/images/qa.png" class="qa_btn"/>
+</a> 
+
+	
+
+
+
+
+
+
+
+
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NN9SBRR');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-48785672-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "UA-48785672-1", {
+'linker': {
+'domains': ['www.fubon.com','b2c.518fb.com']
+}
+});
+</script>
+
+	
+
+<style>
+#loadingOverlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	position: fixed;
+	text-align: center;
+	color: white;
+	text-shadow: none;
+	display: table;
+	top: 0;
+	left: 0;
+}
+
+#loadingOverlay>div {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+/*
+bootstrap toast
+*/
+.toast{
+
+	background-color: #333;
+    z-index: 20;
+	width:100%;
+    height: 90px;
+    margin-top: -20px;
+	opacity: 0.80;
+	padding: 15px;
+}
+.toast-body{
+	padding-left: 50px;
+}
+.toast-header .close{
+	background: #1DA7FC;
+    color: #fff;
+    border: 2px solid #1DA7FC;
+	padding:5px;
+	opacity: 1;
+	text-shadow: 0 0px;
+}
+/*
+popover
+*/
+.popover.fade.right.in{
+    background-color: #f8ca01;
+}
+
+.popover.fade.right.in .arrow:after {
+  border-right-color: #f8ca01;
+}
+
+
+
+</style>
+<div id="loadingOverlay" style="display: none;">
+	<div>
+		<img
+			src="/B2CUnion/resources/vehicle/images/car/loading.gif" alt="loading">
+		<div id="loadingPercentage" style="text-align: center;">10%</div>
+		<div id="loadingMessage">讀取中...</div>
+	</div>
+</div>
+	
+	<link rel="stylesheet" href="../../resources/vehicle/css/car/bootstrap.min.css">
+	<link rel="stylesheet" href="../../resources/vehicle/css/car/pi-layout.css">
+	<style>
+		/*
+		div#info-1{
+			margin-top: 500px;
+		}
+		*/
+		/*
+		div#info-2{
+			margin-top: 600px;
+		}
+		*/
+		span .btnstyle3{
+			font-size:80%;
+			color:#ff3333;
+			display: inline-block;
+  			margin-left: 7px;
+		}
+		#terms07-agree-span{
+			font-size:80%;
+		}
+		
+		@media only screen and (max-width: 700px){
+			#terms07-agree-span{
+			    font-size: 70%;
+			    margin-top: -12px;
+			}
+		}
+	
+	</style>
+</head>
+<body>
+	
+
+
+
+
+
+
+
+
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NN9SBRR" sandbox height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div id="main">
+        <section class="title">
+            <div class="container">
+                <div class="logoblock"><img src="../../resources/vehicle/images/logo_fubon.png" alt="Pi 拍錢包拍好險系列之富邦汽車險" width="100%" class="logo"></div>
+                <div class="step-container">
+                    <div class="step step1 focus">填寫資料</div>
+                    <div class="step step2">確認方案</div>
+                    <div class="step step3">確認內容</div>
+                    <div class="step step4">投保成功</div>
+                    <div class="stepHidden" style="display:none">
+                    B2C_PACKAGE;B2C_AI1;WEB;;;;;
+                    </div>
+                </div>
+            </div>
+        </section>
+        <form id="fubon03form" action="/B2CUnion/vehicle/car/fubon03.do?unionCode=B2C_PACKAGE&amp;unionMenu=B2C_AI1&amp;unionSource=WEB" method="post">
+        <section class="form">
+            <div class="container">
+                    <div class="content"> 
+                        <h2>投保聲明</h2>
+                        <ol>
+                            <li>本次網路投保:可投保一人且被保險人年齡為20歲以上。</li>
+                            <li>本次投保的要保人與行照車主及持卡人為同一人。</li>
+                            <li>本次投保的「險種及保額」皆為法令所開放內容。</li>
+                            <li>本次交易同時符合上述三項網路投保條件即不須回傳親簽要保書</li>
+                            <li>投保前請先準備行車執照。</li>
+                        </ol>
+                    </div>
+                    
+
+                	<div class="content"> 
+	                    <h2>投保內容</h2>
+	                    
+	                    <div class="form-block">
+                           		<div class="terms-block">
+                               		<span class="bill-type">
+                                   		<input id="bill-type-1" name="countryType" class="opt-bill" checked="true" type="radio" value="1"/>
+                                   		<label for="bill-type-1" class="bill-title">本國人</label>
+                               		</span>
+                               		<span class="bill-type">
+                                 		<input id="bill-type-2" name="countryType" class="opt-bill" type="radio" value="2"/>
+                                 		<label for="bill-type-2" class="bill-title">外國人</label>
+                            		</span>                           		
+                           		</div>
+                       		</div>
+	                    
+			                
+			                    <div class="form-block">
+		                            <label for="insuredID">車主身分證字號</label>
+		                            <input type="text" name="insuredID" maxlength="10" class="pi-input" value="" target="uppercase"/>
+		                        </div>
+                        	          				
+                      		<div class="form-block">
+                         	 	<label>牌照號碼</label>
+								 <button type="button" class="info_icon popover-btn" data-toggle="popover" data-html="true"
+								 data-content="1.請勿將英文+數字或數字+英文輸入顛倒(請輸入行照上所載資料)<br/>2.請避免輸入錯誤例如:英文O及數字0、英文B及數字8<br/>3.請再次確認車主ID及牌照號碼是否正確，若資料錯誤將影響您保險權益"></button>
+                         		<div class="field">
+                             		<div class="fbox">
+                             		<input id="plateNumFirst" name="plateNumFirst" class="pi-input" placeholder="車號(前)" target="uppercase" type="text" value="" maxlength="4"/>
+                            		 </div>
+                             	<div class="fbox5">
+                              	   <p>&mdash;</p>
+                            	 	</div>
+                             	<div class="fbox">
+                             	<input id="plateNumLast" name="plateNumLast" class="pi-input" placeholder="車號(後)" target="uppercase" type="text" value="" maxlength="4"/>
+                           	</div>	                        
+                        
+
+	                </div>
+
+		            
+	                    <div class="content">
+	                        <div class="form-block">
+	                            <h3>個人專屬優惠代碼
+	                            	<button type="button" class="info_icon"></button>
+	                            	<div class="info" style="display: none;" id="info-2">
+	                   					<span class="small-label-b">是否有收到優惠活動邀請?</span>
+	                   					<span class="small-label-b">如果有的話，您可以在此輸入優惠代碼。</span>
+	                   					<span class="small-label-b">(若無優惠代碼可免填)</span>
+	                   				</div>
+	                   				<span><a href='https://www.fubon.com/insurance/b2c/content/main/GetCode.html?_ga=2.17775865.1306166961.1600657518-454070217.1600657518&_gac=1.45100374.1600647081.CPqpt47avtECFd4KKgod44EGgQ' class='btnstyle3' name='QueryTran' value='投保後查詢' target="_blank">(如何取得優惠代碼呢? )</a></span>
+	                            </h3>
+	                            <span class="small-label-b"> (若無優惠代碼可不輸入，本次交易僅限用一組)</span>
+	                            <input id="coupon" name="coupon" class="pi-input" placeholder="範例 VMA0300001U3" type="text" value="" maxlength="20" autocomplete="off"/>
+	                        </div>
+	                    </div>
+                    
+                    <div class="content">
+                <h2>同意聲明事項</h2>
+                <p class="input-text">請點閱下方文件，完成閱讀後同意聲明事項。</p>
+                
+                <!--線上投保注意事項-->
+                <div class="terms-block">
+                    <span class="check">
+                        <input type="checkbox" name="terms01[]" id="terms01" onclick="return false;">
+                        <label for="terms01" class="check-title btn-modal terms-paper link" id="opterms" data-modal-id="1">線上投保注意事項</label>
+                    </span>
+                    <div class="terms">
+                        <div id="modal-terms1" class="modal-terms">
+                        <div class="container">
+                            <div class="modal-content">
+                                <h3>線上投保注意事項 </h3>
+                                <p class="content-terms">20200312002<b>一、要保人與被保險人聲明事項：(本聲明事項僅針對投保傷害險部分適用)</b><br>1. 本人（被保險人）同意富邦產物保險公司得蒐集、處理及利用本人相關之健康檢查、醫療及病歷個人資料。<br>2. 本人（被保險人、要保人）同意富邦產物保險公司將本要保書上所載本人資料轉送產、壽險公會建立電腦系統連線，並同意產、壽險公會之會員公司查詢本人在該系統之資料以作為核保及理賠之參考，但各該公司仍應依其本身之核保或理賠標準決定是否承保或理賠，不得僅以前開資料作為承保或理賠之依據。<br>3. 本人（被保險人、要保人）同意富邦產物保險公司就本人之個人資料，於「個人資料保護法」所規定之範圍內，有為蒐集、處理及利用之權利。<br>※本公司保留承保與否之權利。其他未盡詳細事項，依保單條款辦理。<br>※如需參考其他相關商品資訊，可查閱本公司網站或洽服務人員辦理。<br>※本人(要保人)已審閱並暸解 貴公司所提供之投保須知及依履行「個人資料保護法第八條第一項告知義務」。<br>※本人已了解各類車體損失保險商品之內容差異。<br>   <b>二、本公司聲明事項：</b> <span style="color:red;">■ 本商品經本公司合格簽署人員檢視其內容業已符合保險精算原則及保險法令，惟為確保權益，基於保險公司與消費者衡平對等原則，消費者仍應詳加閱讀保險單條款與相關文件，審慎選擇保險商品。本商品如有虛偽不實或違法情事，應由本公司及負責人依法負責。<br>■ 保險契約各項權利義務皆詳列於保單條款，消費者務必詳加閱讀了解。<br>■ 本要保書所列強制險相關欄位，僅為提醒保戶維持強制險之有效性及檢視保障之完整性。強制汽車責任保險訂定仍須依強制汽車責任保險法施行細則第四條辦理。<br></span><b>三、其他：</b> <br>1. 核保完成後，若您選擇紙本保單:富邦產險會於七個工作天內將您的保單及收據郵寄至通訊地址。<br>2. 核保完成後，若您選擇電子保單:富邦產險會於一天內將保單及收據寄送到您所填寫的電子郵件,如您有投保車險，我們將不會再郵寄紙本保單或強制保險證”給您，電子保單也可以辦理監理業務。<br>3. 我們將提醒您續保通知、壽星優惠與理財資訊等訊息，若您不想收到此優惠訊息請來信讓我們知道。<br>4. 我們將依據您與富邦金融控股公司各子公司往來之申請書或相關契約上同意提供之資料範疇，在各子公司間進行共同行銷時交互運用與揭露，有關本公司之共同行銷個人資料使用授權同意書，請至www.fubon.com/富邦產險/表單下載瀏覽。<br>5. 符合網路投保流程:要保人完成網路投保後，本公司網站客服人員將依規定，於保單寄發前進行抽樣電訪，且要保人同意本公司進行全程錄音並備份存檔。<br>6. 不符合網路投保流程:為符合法規要求,請您列印要保書後簽名回傳,以完成要保程序。<br>7. 本人已了解保險法第51條規定，亦即保險契約訂立時，保險標的之危險已發生或已消滅者，其契約無效。<br>8. 本人已了解消費者輸入一次性密碼連續錯誤達5次時，則該一次性密碼失效，本公司資訊系統將重新對消費者認證。<br>9. 本人已了解本保險以系統記錄登入完成交易時間為準，於上開時間前所發生之事故，本公司不負賠償責任。<br>10.本人同意由系統主動判斷被保險人車號是否符合里程數優質客戶之條件。<br>11.本人已了解保險公司每年依照公司損失及賠付經驗值，調漲或調降保險費，以維持保險市場之健全發展，系統將依被保險人是否有無賠款記錄進行保險費之減費或加費，本網站之程式於保費試算時，會依規定自動計算您的「無肇事紀錄減費」優惠，請您放心。<br>12.本人已了解目前機車強制險僅分輕型、重型、大型重型及一年與二年期保單採行單一費率，並無實施從人因素等加減費措施。<br>13.本人已了解汽車保險共同條款之第九條規定，有關被保險機車有出租予人或作收受報酬載運乘客或貨物等類似行為所致之賠償責任或毀損滅失，非經本公司同意事先加保者，本公司不負賠償責任。<br><b>【要/被保險人投保須知】</b>一、 告知義務：要保人及被保險人應誠實告知，否則保險公司得解除契約；保險事故發生後亦同。<br>二、 貴客戶之權利行使、變更、解除及終止：<br>    (一)權利行使：被保險人發生保險事故並致生損害時，應依保險法相關法令與投保商品契約條款之約定與程序通知及向本公司申請理賠。<br>    (二)契約變更：<br>        1.保險契約之一切通知除經雙方同意得以其他方式為之者外，雙方當事人均應以書面送達對方最後所留之住址。<br>        2.保險契約之任何變更，非經雙方同意且經本公司簽批者不生效力。<br>        3.保險契約條款有停效約定者，本公司於契約停效期間不負給付保險金之責任。<br>    (三)契約解除及終止：<br>        1.保險契約當事人之一方違背特約條款時，他方得解除契約；其危險發生後亦同。<br>        2.保險契約得經要保人通知而終止之，自終止之書面送達保險人之翌日起，保險契約失其效力；另契約若約定須經抵押權人同意始得變更或終止保險者，從其約定。 <br>    (四)本公司對於保險契約之重要權利、義務及責任：本公司依據經主管機關核定之各項保險費率收取保險費，在承保危險事故發生時，依相關法令、契約條款之約定及承保之責任，向請求權人、被保險人或受益人負賠償之義務。<br>    (五)本公司各類保險商品之重要內容，皆已登載於保單條款並以紅色或顯著字體列印，貴客戶可向本公司索取條款審閱，或於本公司網站(富邦產險/公開資訊/保險商品)進行瀏覽。<br>    (六)貴客戶應負擔之費用及違約金（包括收取時點、計算及收取方式）：貴客戶除繳交保險費外，無需繳交其他費用及違約金。 <br>    (七)本公司保險商品悉依保險法令相關規定辦理，並依法受有財產/人身保險安定基金之保障。<br>    (八)因投保契約所生紛爭之處理方式及申訴之管道：對於保險契約發生爭議時，得以書面或電話向本公司要求解釋或申訴，或依法向有關單位提出申訴。本公司免費客戶服務專線0800-009-888。<br><b>【要/被保險人確認事項】</b>一、 要/被保險人已充分告知基本資料。<br>二、 要/被保險人已瞭解投保條件、投保目的及需求程度，並將交由本公司核保人員進行相關核保程序。<br>三、 要/被保險人已瞭解所交保費係用以購買保險商品。<br>四、 要/被保險人已瞭解投保之險種、保額與保費支出與其實際需求是否相當。<br>五、 要/被保險人已瞭解匯率風險之承受能力(購買以外幣收付之非投資型商品適用)。<br>六、 要/被保險人之投保目的為財產及利益作風險規劃或依法應負之賠償責任作風險規劃或為所屬員工可能承受之傷害作風險規劃。<br></p>
+                                <span class="small-label">請閱覽到最下方</span>                 
+                                <span class="close disable" data-for-checkbox-id="terms01">我同意以上聲明</span><!--預設 disable 不可點選，滾到最底後 disable 隱藏，可點選-->
+                            </div>
+                        </div>
+                        </div>
+                    </div> 
+                </div>
+                <!--蒐集個人資料各之事項-->
+                <div class="terms-block">
+                    <span class="check">
+                        <input type="checkbox" name="terms02[]" id="terms02" onclick="return false;">
+                        <label for="terms02" class="check-title btn-modal terms-paper link" id="opterms2" data-modal-id="2">蒐集個人資料告知事項</label>
+                    </span>
+                    <div class="terms">
+                        <div id="modal-terms2" class="modal-terms">
+                            <div class="container">
+                                <div class="modal-content">
+                                    <h3>蒐集個人資料各之事項</h3>
+                                    <p class="content-terms">親愛的客戶，您好：<br>本公司<b>（富邦產物保險股份有限公司）</b>依據個人資料保護法（以下稱個資法）第八條第一項(如為間接蒐集之個人資料則為第九條第一項)規定，向台端告知下列事項，敬請 台端詳閱：<br>一、蒐集之目的：<br>（一）093財產保險(依保險法令規定辦理之財產保險相關業務)。<br>（二）001人身保險(依保險法令規定財產保險經許可辦理之相關業務)。<br>（三）040 行銷（包含金控共同行銷業務）。<br>（四）181其他經營合於營業登記項目或組織章程所定業務之需要。<br>二、類別：包括但不限於姓名、身分證字號、出生年月日、住址、聯絡方式、婚姻、家庭、教育、職業、財務情況及其他得以直接或間接方式識別該個人之資料。<br>三、個人資料來源：<br>（一）要保人/被保險人。<br>（二）司法警憲機關、委託協助處理理賠之公證人或機構。<br>（三）當事人之法定代理人、輔助人。<br>（四）各醫療院所。<br>（五）與第三人共同行銷、交互運用客戶資料、合作推廣等關係、或於本公司各項業務內所委託往來之第三人。<br>四、利用之期間、對象、地區及方式：<br>（一）期間：因執行業務所必須及法令規定應為保存之期間。<br>（二）對象：<br>1.本公司、與本公司簽訂合作推廣契約之保險代理人/保險經紀人、因辦理財產保險相關業務需要之第三方。<br>2.本(分)公司及本公司海外分支機構、中華民國產物保險商業同業公會、中華民國人壽保險商業同業公會、財團法人保險事業發展中心、財團法人保險安定基金、財團法人住宅地震保險基金、財團法人汽車交通事故特別補償基金、財團法人金融消費評議中心、關貿網路股份有限公司、中央健康保險局、業務委外機構、與本公司有再保業務往來之公司、依法有調查權機關或金融監理機關。<br>（三）地區：上述對象所在之地區。<br>（四）方式：合於法令規定之利用方式。<br>五、依據個資法第三條規定，台端就本公司保有台端之個人資料得行使之權利及方式： <br>（一）得向本公司行使之權利：<br>1.向本公司查詢、請求閱覽或請求製給複製本。<br>2.向本公司請求補充或更正。<br>3.得向本公司請求停止蒐集、處理或利用及請求刪除。<br>（二）行使權利之方式：<br>以書面或其他日後可供證明之方式。<br>六、台端不提供個人資料所致權益之影響（個人資料由當事人直接蒐集之情形適用）：<br>台端若未能提供相關個人資料時，本公司將可能延後或無法進行必要之審核及處理作業，因此可能婉謝承保、遲延或無法提供  台端相關服務或給付。<br>【註】<br>1.上開告知事項已公告於本公司官網(https://www.fubon.com/insurance/home/index.htm)，如有任何問題歡迎洽詢本公司0800009888免付費客服專線。<br>2.本告知事項內容若有更動，係以官網公告版本為準。<br></p>
+                                    <span class="small-label">請閱覽到最下方</span>
+                                    <span class="close disable" data-for-checkbox-id="terms02">我同意以上聲明</span><!--預設 disable 不可點選，滾到最底後 disable 隱藏，可點選-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="content">
+                    </div>
+                    <div class="content">
+                <div class="button">
+                	<a name="_history_go" class="btn btn-normal show-loading" onclick="history.back()" >上一步</a>
+                    <input type="submit" name="_eventId_proceed" class="btn btn-normal show-loading" value="下一步" />
+                </div>
+                    </div>
+            </div>
+        </section>
+        </form>
+    </div>
+
+    <style>
+    	div .copyright{
+    		color:#ff3333;
+    		margin-top: 20px;
+			max-width: 475px;
+    	}
+    	#footer{
+    		margin-top: 10px;
+    	}
+	</style>
+    <div>
+	    <div class="container copyright">
+	    	<span>(※本線上投保服務及其網域係屬富邦產險官網 All rights reserved.)</span>
+    	</div>
+	</div>
+	
+    <footer id="footer">
+		<div aria-live="polite" aria-atomic="true" style="position: relative;">
+			<div class="toast" style="position: absolute; top: 0; right: 0;">
+			  <div class="toast-header">
+				<!--
+				<img src="..." class="rounded mr-2" alt="...">
+				<strong class="mr-auto">Bootstrap</strong>
+				<small>11 mins ago</small>
+				-->
+				<button type="button" class="ml-2 mb-1 close btn btn-normal" data-dismiss="toast" aria-label="Close">
+				  <span aria-hidden="false">我知道了</span>
+				</button>
+			  </div>
+			  <div class="toast-body">
+				Hello, world! This is a toast message.
+			  </div>
+			</div>
+		</div>
+        <div class="container">
+            	網站客服信箱：<a href="mailto:ec.ins@fubon.com">ec.ins@fubon.com</a><br>線上投保諮詢：<a href="tel:+886266367890">(02)6636-7890</a> 分機 58962<br>服務諮詢時間：上班日 8:30 ~ 17:30
+		</div>
+    </footer>
+    <script>	EmbedAstar('', true);</script>
+	<script>
+	// 生日限制
+
+	$(function(){ // 表單驗證
+		var fubon03form = $('#fubon03form');
+		jQuery.validator.addMethod("agreeChk", function(value, element) {
+			return $(element).prop('checked');
+		});
+		fixHover(".info_icon", ".info", 0);
+		var validator = $(fubon03form).validate({
+			ignore: [],
+			errorClass: "form-error",
+			errorPlacement: function(error, element){
+				//console.log('errorPlacement');
+				if (element.attr('type') == 'checkbox') {
+	                // do nothing
+	            } else {
+					error.insertAfter(element);
+				}
+
+			},
+			rules:{
+				insuredID:	{
+					required: true,
+					personalId_tw:{
+						depends:function(element){
+						return $("#bill-type-1").is(":checked");
+						}},
+					personalId_foreigner:{
+						depends:function(element){
+						return $("#bill-type-2").is(":checked");
+						}}
+				},
+				plateNumFirst:	{required: true},
+				plateNumLast:	{required: true},
+				'terms01[]':	{agreeChk: true},
+				'terms02[]':	{agreeChk: true},
+				'terms07[]':	{agreeChk: true}
+			},
+			
+			submitHandler: function(fubon03form){
+				if(!isIE11or10()){
+					$(fubon03form).attr('disabled',true);
+				}
+				fubon03form.submit();
+			},
+			invalidHandler: function(fubon03form, validator) {
+	            $.closeLoadingOverlay();
+	      	}
+		});
+		
+		$("input[name='countryType']").on("change",function(){
+			var countryType = $("input[name='countryType']:checked").val();
+			if(countryType=="1"){
+				$("label[for='insuredID']").html("車主身分證字號");
+			}else if(countryType=="2"){
+				$("label[for='insuredID']").html("統一證號");
+			}else if(countryType=="3"){
+				$("label[for='insuredID']").html("統一編號");
+			}
+			
+		});
+		
+		$(".check").on("click",function(){
+			$("body").css("overflow-y","hidden");
+			$("html").css("overflow-y","hidden");
+		});
+		
+		$(".close").on("click",function(){
+			$("html").css("overflow-y","auto");
+			$("body").css("overflow-y","auto");
+		});
+		// input type=text 全形轉半形
+		toHelfChar($('input[name="insuredID"]'));
+		toHelfChar($('#plateNumFirst'));
+		toHelfChar($('#plateNumLast'));
+		
+		$('[type="text"]').on('change',function(){
+			toHelfChar($('input[name="' + this.name + '"]'));
+		});
+		//================================
+		//$('#element').toast('show');
+		//$('#element').popover('enable')
+		$('.popover-btn').popover({
+			trigger: 'focus'
+		});
+	});
+	
+	
+	function isIE11or10(){
+		var isIE = false;
+		var UA=navigator.userAgent, isWebkit=/\b(iPad|iPhone|iPod)\b/.test(UA) && /WebKit/.test(UA) && !/Edge/.test(UA) && !window.MSStream;
+		var ie11 = UA.indexOf('Trident/7.0');
+		var ie10 = UA.indexOf('MSIE xyz');
+		if(ie11>0 || ie10 > 0){
+			isIE = true;
+		}
+		return isIE;
+	}
+	</script>
+</body>
+</html>

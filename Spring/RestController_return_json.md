@@ -1,3 +1,4 @@
+## 1. Return Map
 ```java
 @RestController
 public class MainRestController{
@@ -12,6 +13,26 @@ public class MainRestController{
     }
 }
 
+```
+
+## Output:
+```
+
+```
+
+## 2. Return Object
+```java
+@RestController
+public class MainRestController{
+
+    @PostMapping("rest/client")
+    public Client postMain(){
+        ....
+
+        Client client = service.findByID(id);
+        return client;
+    }
+}
 ```
 
 ## Output:
