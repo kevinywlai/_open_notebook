@@ -1,4 +1,4 @@
-## To List<String>
+## To List\<String\>
 
 ```java
 List<String> b = m.getClaim1().stream()
@@ -20,7 +20,7 @@ System.out.println(gson.toJson(b));
 ]
 ```
 
-## To List<Object>
+## To List\<Object\>
 
 ```java
 List<ClaimFile> c = m.getClaim1().stream()
@@ -74,7 +74,7 @@ System.out.println(gson.toJson(c));
 ]
 ```
 
-## To Map<String,Object>
+## To Map\<String,Object\>
 
 ```java
 Map<String,ClaimFile> d = m.getClaim1().stream()
@@ -190,4 +190,14 @@ public class ClaimFile {
 		this.key = key;
 	}
 }
+```
+
+## To List\<Character\>
+
+```java
+String txt1 = "IOEDCBAAI";
+		
+List<Character> charList = txt1.chars()
+  .mapToObj(c -> (char) c)
+  .collect(Collectors.toList());
 ```
