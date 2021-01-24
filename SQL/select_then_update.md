@@ -1,0 +1,147 @@
+## Update Datetime
+
+|SNO|CNO|SCORE|SCORE2|
+|---|---|---|---|
+|A01|C001|2021-01-21 01:01:01.000|NULL|
+|A02|C002|2021-01-22 02:02:02.000|NULL|
+|A03|C003|2021-01-23 03:03:03.000|NULL|
+|A04|C001|2021-01-24 04:04:04.000|NULL|
+
+### SQL:
+```sql
+DECLARE @Table1 TABLE (SCORE datetime)
+Insert into @Table1(SCORE )
+	SELECT SCORE FROM SC3 WHERE SNO IN ('A01','A02')
+	UPDATE SC3 SET SCORE2 = DATEADD(hour,8,SCORE) WHERE SCORE in(select SCORE from @Table1)
+```
+```SQL
+DECLARE @Table1 TABLE (SCORE datetime)
+Insert into @Table1(SCORE )
+	SELECT SCORE FROM SC3 WHERE SNO IN ('A01','A02')
+	UPDATE SC3 SET SCORE2 = DATEADD(hour,8,SCORE) 
+		WHERE SCORE in  ( SELECT SCORE FROM @Table1 
+                            WHERE SCORE >= '2021-01-21 01:00:00.000' 
+							AND SCORE < '2021-01-23 03:00:00.000')
+
+```
+
+### Result:
+|SNO|CNO|SCORE|SCORE2|
+|---|---|---|---|
+|A01|C001|2021-01-21 01:01:01.000|2021-01-21 09:01:01.000|
+|A02|C002|2021-01-22 02:02:02.000|2021-01-22 10:02:02.000|
+|A03|C003|2021-01-23 03:03:03.000|NULL|
+|A04|C001|2021-01-24 04:04:04.000|NULL|
+
+
+#### Create, Insert
+```sql
+USE [Exam_STUDENT_15]
+GO
+
+/****** Object:  Table [dbo].[SC]    Script Date: 1/24/2021 3:14:55 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SC3](
+	[SNO] [char](10) NOT NULL,
+	[CNO] [char](10) NOT NULL,
+	[SCORE] [datetime] NULL,
+	[SCORE2] [datetime] NULL,
+ CONSTRAINT [PK_SC3] PRIMARY KEY CLUSTERED 
+(
+	[SNO] ASC,
+	[CNO] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+USE [Exam_STUDENT_15]
+GO
+```
+
+```sql
+INSERT INTO [dbo].[SC3]
+           ([SNO]
+           ,[CNO]
+           ,[SCORE])
+     VALUES
+           ('A01','C001','2021-01-21 01:01:01.000'),
+		   ('A02','C002','2021-01-22 02:02:02.000'),
+		   ('A03','C003','2021-01-23 03:03:03.000'),
+		   ('A04','C001','2021-01-24 04:04:04.000')
+GO
+```
+
+---
+
+## Update INT
+
+|SNO|CNO|SCORE|SCORE2|
+|---|---|---|---|
+|A01|C001|97|NULL|
+|A02|C002|58|NULL|
+|A03|C003|98|NULL|
+|A04|C001|80|NULL|
+
+### SQL:
+```sql
+Insert into @Table1(SCORE )
+	SELECT SCORE FROM SC2 WHERE SNO IN ('A01','A02')
+	UPDATE SC2 SET SCORE2 = (SCORE - 10) WHERE SCORE in(select SCORE from @Table1)
+```
+
+### Result:
+|SNO|CNO|SCORE|SCORE2|
+|---|---|---|---|
+|A01|C001|97|87|
+|A02|C002|58|48|
+|A03|C003|98|NULL|
+|A04|C001|80|NULL|
+
+
+#### Create, Insert
+```sql
+
+USE [Exam_STUDENT_15]
+GO
+
+/****** Object:  Table [dbo].[SC]    Script Date: 1/24/2021 3:14:55 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SC2](
+	[SNO] [char](10) NOT NULL,
+	[CNO] [char](10) NOT NULL,
+	[SCORE] [int] NULL,
+	[SCORE2] [int] NULL,
+ CONSTRAINT [PK_SC2] PRIMARY KEY CLUSTERED 
+(
+	[SNO] ASC,
+	[CNO] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+USE [Exam_STUDENT_15]
+GO
+```
+
+```sql
+INSERT INTO [dbo].[SC2]
+           ([SNO]
+           ,[CNO]
+           ,[SCORE])
+     VALUES
+           ('A01','C001',97),
+		   ('A02','C002',58),
+		   ('A03','C003',98),
+		   ('A04','C001',80)
+GO
+```
