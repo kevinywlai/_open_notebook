@@ -13,3 +13,7 @@ System.out.println(encodedUrlString);
 byte[] decodedBinary2 = Base64.getDecoder().decode(encodedUrlString);
 System.out.println(new String(decodedBinary2));
 ```
+
+```java
+import java.util.Base64;
+```
