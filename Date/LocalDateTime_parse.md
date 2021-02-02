@@ -36,4 +36,5 @@ LocalDateTime l23 = LocalDateTime.parse(time3, DateTimeFormatter.ISO_OFFSET_DATE
 ## Reference
 - [Class LocalDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html)
 
-- [Class DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html)
+- [Class DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 
+    - yyyy/MM/dd HH:mm:ss.SSS, ZoneId etc.

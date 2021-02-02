@@ -52,7 +52,7 @@ public class Client1 {
 }
 ```
 
-## RequestBody
+## RequestBody (Request Payload)
 ```java
 	@PostMapping("/post2")
 	public Client post2(@RequestBody String payload) {
@@ -139,3 +139,8 @@ class Client{
 <img src="images/2020-11-01_230415.png">
 
 <img src="images/2020-11-01_230444.png">
+
+<br>
+
+## also see:
+[How are parameters sent in an HTTP POST request?](https://stackoverflow.com/questions/14551194/how-are-parameters-sent-in-an-http-post-request)
