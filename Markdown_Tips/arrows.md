@@ -1,0 +1,10 @@
+- &larr;
+- &uarr;
+- &rarr;
+- &darr;
+- &harr;
+- &lArr;
+- &uArr;
+- &rArr;
+- &dArr;
+- &hArr;
