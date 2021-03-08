@@ -1,5 +1,3 @@
-
-
 ## Hashing Algorithms
 
 |||
@@ -101,4 +99,28 @@ Options:
             24 -- Network Service
 
 Hash algorithms: MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512
+```
+
+## Java SHA-256 
+
+```java
+public class Ch10_4 {
+
+	public static void main(String[] args) throws NoSuchAlgorithmException {
+		MessageDigest alg = MessageDigest.getInstance("SHA-256");
+        // MD2 MD5
+        // SHA SHA-224 SHA-256
+        // SHA-384 SHA-512
+		byte[] hash = alg.digest("123456".getBytes());
+		for (int i = 0; i < hash.length; i++){
+      System.out.printf("%02X ", hash[i] & 0xFF);
+    }
+		System.out.println();
+	}
+}
+```
+
+```java
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 ```
