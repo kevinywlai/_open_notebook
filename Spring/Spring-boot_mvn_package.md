@@ -89,6 +89,7 @@ public class MavenFilterApp {
 	<description>Maven Multi-property Test</description>
 	<properties>
 		<java.version>1.8</java.version>
+        <maven.test.skip>true</maven.test.skip>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -381,3 +382,4 @@ env=prod
 
 - [maven-profiles-example](https://mkyong.com/maven/maven-profiles-example/)
 - [三個簡單類型的maven-ear專案做法](https://tzuyichao.wordpress.com/2016/08/27/三個簡單類型的maven-ear專案做法/)
+- [Maven – How to skip unit test](https://mkyong.com/maven/how-to-skip-maven-unit-test/)
