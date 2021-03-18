@@ -61,4 +61,6 @@ System.out.println(m); // true
 /\d{4,5}/.test('1y3456789'); // true 3456, 4567 ... match
 
 /\d{4,5}/.test('1y345'); // false
+
+/\d{6}/.test('123456t123456'); // true
 ```
