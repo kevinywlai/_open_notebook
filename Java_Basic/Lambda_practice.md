@@ -154,3 +154,8 @@ public class Main1 {
 	
 }
 ```
+
+# Reference:
+[Oracle Stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)
+
+[Stream Resources](https://github.com/kevinywlai/_notebook/blob/master/Java_notebook/Lambda/Resources.md)
