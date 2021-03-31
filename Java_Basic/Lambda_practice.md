@@ -155,6 +155,112 @@ public class Main1 {
 }
 ```
 
+### 2021/04/01
+
+```java
+public class Main2 {
+
+	static Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
+	
+	public static void main(String[] args) {
+		Project project2 = new Project("project 2","p002",true,Arrays.asList(Packages.item21,Packages.item31,Packages.item32));
+		System.out.println(gson.toJson(project2));
+		Project project2_ = replaceOb(project2,"32");
+		
+		System.out.println(gson.toJson(project2)); //!!! side effect
+		System.out.println(gson.toJson(project2_));
+	}
+	
+	public static Project replaceOb(Project project,String itemNo) {
+		Item item = project.getItems()
+			.stream()
+			.filter(i-> itemNo.equals(i.getItemNo())).findFirst().orElse(new Item());
+		int index = project.getItems().indexOf(item);
+		item.setAccidentNum("200");
+		project.getItems().set(index, item); // cause side effect
+		return project;
+	}
+
+}
+
+
+```
+
+### output
+
+```
+{
+  "ProjectName": "project 2",
+  "ProjectNo": "p002",
+  "isShow": true,
+  "items": [
+    {
+      "ItemName": "compulsory insurance",
+      "ItemNo": "21",
+      "AccidentNum": "200"
+    },
+    {
+      "ItemName": "liability insurance 1",
+      "ItemNo": "31",
+      "AccidentNum": "50"
+    },
+    {
+      "ItemName": "liability insurance 2",
+      "ItemNo": "32",
+      "AccidentNum": "100"
+    }
+  ]
+}
+{
+  "ProjectName": "project 2",
+  "ProjectNo": "p002",
+  "isShow": true,
+  "items": [
+    {
+      "ItemName": "compulsory insurance",
+      "ItemNo": "21",
+      "AccidentNum": "200"
+    },
+    {
+      "ItemName": "liability insurance 1",
+      "ItemNo": "31",
+      "AccidentNum": "50"
+    },
+    {
+      "ItemName": "liability insurance 2",
+      "ItemNo": "32",
+      "AccidentNum": "200" 
+    }
+  ]
+}
+{
+  "ProjectName": "project 2",
+  "ProjectNo": "p002",
+  "isShow": true,
+  "items": [
+    {
+      "ItemName": "compulsory insurance",
+      "ItemNo": "21",
+      "AccidentNum": "200"
+    },
+    {
+      "ItemName": "liability insurance 1",
+      "ItemNo": "31",
+      "AccidentNum": "50"
+    },
+    {
+      "ItemName": "liability insurance 2",
+      "ItemNo": "32",
+      "AccidentNum": "200"
+    }
+  ]
+}
+```
+"AccidentNum": <mark>"100"</mark><br>
+"AccidentNum": <mark>"200"</mark><br>
+
+
+
 # Reference:
 [Oracle Stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)
 

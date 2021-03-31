@@ -64,3 +64,11 @@ System.out.println(m); // true
 
 /\d{6}/.test('123456t123456'); // true
 ```
+
+## UUID Java
+
+```java
+boolean a = 
+    "6dfac143-9198-47ca-a017-6a341685d277"
+    .matches("^([a-f0-9]{8}(-[a-f0-9]{4}){4}[a-f0-9]{8})$");
+```
