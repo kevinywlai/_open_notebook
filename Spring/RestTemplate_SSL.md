@@ -215,3 +215,7 @@ public class RestTest2 {
 
 }
 ```
+
+# Reference:
+- [HttpClient with SSL
+](https://www.baeldung.com/httpclient-ssl)
