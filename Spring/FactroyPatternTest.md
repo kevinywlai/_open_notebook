@@ -378,3 +378,12 @@ test... + Factory2_2:2
 false
 true
 ```
+
+
+# Reference
+
+- [spring-bean-scopes-examples](https://mkyong.com/spring/spring-bean-scopes-examples)
+
+- [spring-autowired-on-a-class-new-instance](https://stackoverflow.com/questions/52355132/spring-autowired-on-a-class-new-instance/52355649)
+
+- [creating-bean-definitions](https://docs.spring.io/spring-javaconfig/docs/1.0.0.m3/reference/html/creating-bean-definitions.html)
