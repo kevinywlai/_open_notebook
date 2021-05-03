@@ -1,0 +1,1 @@
+VO, DTO, POSO, DAO, Entity
