@@ -1,3 +1,36 @@
+# Frame
+
+```java
+public class Test {
+    // Getter
+
+    Test(Test1Builder builder){
+    }
+
+    static class Test1Builder{
+
+        // Setter
+
+        public Test build(){
+            Test test = new Test(this);
+            return test;
+        }
+    }
+}
+
+```
+
+## user
+
+```java
+
+Test test = new Test
+                .Test1Builder()
+                // ... methods
+                .build();
+```
+
+
 
 # Test
 
@@ -62,6 +95,89 @@ public class TestMain {
     }
 }
 ```
+
+# Test Type2 
+
+```java
+package com.fbtest.pr20210602.builder.pr20210605;
+
+public class Test {
+    StringBuilder sb;
+    // Getter
+    Test(Test2Builder test2Builder){
+        this.sb = test2Builder.test1Builder.sb;
+    }
+
+    public StringBuilder getSb(){
+        return this.sb;
+    }
+
+    static class Test1Builder{
+        StringBuilder sb;
+
+        Test1Builder() {
+            this.sb = new StringBuilder();
+        }
+
+        // Setter
+        public Test2Builder setTest1_1(){
+            sb.append("test1_1 ");
+            return new Test2Builder(this);
+        }
+
+        public Test2Builder setTest1_2(){
+            sb.append("test1_2 ");
+            return new Test2Builder(this);
+        }
+    }
+
+    static class Test2Builder{
+        Test1Builder test1Builder;
+        Test2Builder(Test1Builder test1Builder){
+            this.test1Builder = test1Builder;
+        }
+
+        public Test2Builder setTest2_1(){
+            test1Builder.sb.append("test2_1 ");
+            return this;
+        }
+
+        public Test2Builder setTest2_2(){
+            test1Builder.sb.append("test2_2 ");
+            return this;
+        }
+
+        public Test build(){
+            Test test = new Test(this);
+            return test;
+        }
+    }
+}
+```
+## main
+
+```java
+Test test = new Test
+        .Test1Builder()
+        .setTest1_1()
+        .setTest2_1()
+        .build();
+System.out.println(test.sb.toString());
+
+Test test2 = new Test
+        .Test1Builder()
+        .setTest1_2()
+        .setTest2_1()
+        .build();
+System.out.println(test2.sb.toString());
+```
+### output
+
+```
+test1_1 test2_1 
+test1_2 test2_1 
+```
+
 
 # ApiInvoker
 ```java
