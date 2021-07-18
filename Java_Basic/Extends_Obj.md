@@ -111,3 +111,58 @@ class TestC extends TestP{
 ```
 {"name":"Test 1-1","id":"id101"}
 ```
+
+# Access
+
+```java
+package com.fbtest.pr20210623.test2;
+
+/**
+ * access practice
+ */
+public class Pr20210703 {
+    public static void main(String[] args) {
+        Test1 test2 = new Test2();
+        System.out.println(test2.getTest1_1());
+        System.out.println(test2.getTest1_2());
+        // test2 cannot access test2_3
+    }
+}
+```
+
+```java
+abstract class Test1{
+    private String test1_1 = "test1_1";
+    String test1_2 = "test1_2";
+
+    public Test1() {}
+
+    public String getTest1_1() {
+        return test1_1;
+    }
+
+    public void setTest1_1(String test1_1) {
+        this.test1_1 = test1_1;
+    }
+
+    public String getTest1_2() {
+        return test1_2;
+    }
+
+    public void setTest1_2(String test1_2) {
+        this.test1_2 = test1_2;
+    }
+}
+
+```
+
+```java
+class Test2 extends Test1{
+    public String test2_3 = "test2_3";
+
+    public Test2() {
+        //this.test1_1 // 'test1_1' has private access
+        this.test1_2 = "test2_2";
+    }
+}
+```
