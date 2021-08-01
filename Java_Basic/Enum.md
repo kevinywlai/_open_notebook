@@ -90,3 +90,80 @@ public class Main2 {
     }
 }
 ```
+
+# Enum To Map/EnumMap
+
+```java
+package com.fbtest.pr20210725.tests.pr20210731;
+
+public enum DaysOfWeekEnum {
+    SUNDAY("SUN"),
+    MONDAY("MON"),
+    TUESDAY("TUE"),
+    WEDNESDAY("WED"),
+    THURSDAY("THU"),
+    FRIDAY("FRI"),
+    SATURDAY("SAT");
+
+    private String abbr;
+    DaysOfWeekEnum(String abbr){
+        this.abbr = abbr;
+    }
+
+    public String getAbbr(){
+        return this.abbr;
+    }
+}
+```
+
+## To Map
+```java
+Map<DaysOfWeekEnum,String> daysOfWeekMap =  
+            new ArrayList<>(EnumSet.allOf(DaysOfWeekEnum.class))
+                .stream()
+                .collect(Collectors.toMap(Function.identity(),DaysOfWeekEnum::getAbbr));
+```
+
+## To EnumMap
+```java
+EnumMap<DaysOfWeekEnum,String> daysOfWeekEnumMap = 
+        new EnumMap<>(DaysOfWeekEnum.class);
+
+EnumSet
+    .allOf(DaysOfWeekEnum.class)
+    .stream()
+    .forEach(i -> daysOfWeekEnumMap.put(i,i.getAbbr()));
+```
+
+## To EnumSet
+```java
+EnumSet<DaysOfWeekEnum> daysOfWeekEnumSet = EnumSet.allOf(DaysOfWeekEnum.class);
+```
+
+
+```java
+package com.fbtest.pr20210725.tests.pr20210731;
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class Main1 {
+    public static void main(String[] args) {
+        //EnumSet
+        EnumSet<DaysOfWeekEnum> daysOfWeekEnumSet = EnumSet.allOf(DaysOfWeekEnum.class);
+
+        //EnumMap
+        EnumMap<DaysOfWeekEnum,String> daysOfWeekEnumMap = new EnumMap<>(DaysOfWeekEnum.class);
+        EnumSet.allOf(DaysOfWeekEnum.class).stream().forEach(i -> daysOfWeekEnumMap.put(i,i.getAbbr()));
+        System.out.println(daysOfWeekEnumMap.get(DaysOfWeekEnum.FRIDAY));
+
+        // To Map
+        Map<DaysOfWeekEnum,String> daysOfWeekMap =  new ArrayList<>(EnumSet.allOf(DaysOfWeekEnum.class))
+                                                        .stream()
+                                                        .collect(Collectors.toMap(Function.identity(),DaysOfWeekEnum::getAbbr));
+
+        System.out.println(daysOfWeekMap.get(DaysOfWeekEnum.FRIDAY));
+    }
+}
+```
