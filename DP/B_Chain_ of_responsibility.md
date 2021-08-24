@@ -48,8 +48,8 @@ class Client{
     ....
 }
 ```
-
-## Subclass
+---
+## Subclass Way
 
 ```java
 package com.fbtest.pr20210802.tests.dps.chain.pr20210811.subclass_test;
@@ -129,7 +129,8 @@ public class Clients {
 
 ```
 
-## Test
+---
+## Test1
 
 ```java
 package com.fbtest.pr20210802.tests.dps.chain.pr20210811;
@@ -212,3 +213,63 @@ public class Clients {
     }
 }
 ```
+
+---
+
+## Modern Java:
+
+```java
+package com.fbtest.pr20210725.tests.pr20210824.ch09;
+
+public class ChainTest {
+
+    public static void main(String[] args) {
+        ProcessingObj<String> testA = new TestAProcessing();
+        ProcessingObj<String> testB = new TestBProcessing();
+        testA.next = testB;
+        // or p1.setSuccessor(p2);
+
+        String result1 = testA.handle("Aren't labdas really sexy?!!");
+        System.out.println(result1);
+    }
+
+
+    private static abstract class ProcessingObj<T>{
+        protected ProcessingObj<T> next;
+
+        // or
+        //protected ProcessingObj<T> successor;
+        //public void setSuccessor(ProcessingObj<T> successor) {
+        //    this.successor = successor;
+        //}
+
+
+        public T handle(T input) {
+            T r = handleWork(input);
+            if (next != null) {
+                return next.handle(r);
+            }
+            return r;
+        }
+
+        abstract protected T handleWork(T input);
+    }
+
+    private static class TestAProcessing extends ProcessingObj<String> {
+        @Override
+        public String handleWork(String text) {
+            return "Test A: " + text;
+        }
+    }
+    private static class TestBProcessing extends ProcessingObj<String> {
+        @Override
+        public String handleWork(String text) {
+            return "Test B: " + text;
+        }
+    }
+}
+
+```
+
+# Reference:
+[Chapter 9. Refactoring, testing, and debugging, Modern Java in Action](https://www.manning.com/books/modern-java-in-action)
