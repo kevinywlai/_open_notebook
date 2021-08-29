@@ -167,3 +167,37 @@ public class Main1 {
     }
 }
 ```
+---
+
+# switch
+
+```java
+package com.fbtest.pr20210725.tests.pr20210828;
+
+public class Main1 {
+    public static void main(String[] args) {
+        String test = "BB";
+        // String test = "DD"; // IllegalArgumentException
+
+        switch (A.valueOf(test)){
+            case AA:
+                System.out.println("AA");
+                break;
+            case BB:
+                System.out.println("BB");
+                break;
+            case CC:
+                System.out.println("CC");
+                break;
+            default:
+                break;
+        }
+    }
+
+    enum A{
+        AA,
+        BB,
+        CC
+    }
+}
+```
